@@ -1,0 +1,38 @@
+<mat-card fxLayoutAlign="center center">
+  <form [formGroup]="rf" (ngSubmit)="onSubmit()">
+      <div class="example-container">
+        <mat-card-title>Basic User Form</mat-card-title>
+        <mat-form-field>
+          <input type="text" matInput placeholder="Name:" formControlName="name"  >
+          <mat-hint align="start">Not more then 60 characters long.</mat-hint>
+          <mat-error *ngIf="hasError('name', 'required')">Name is required</mat-error>
+        </mat-form-field>
+      
+        <mat-form-field>
+          <input type="email" matInput placeholder="Email:" formControlName="email" >
+          <mat-error *ngIf="hasError('email', 'required')">Email is required</mat-error>
+        </mat-form-field>
+      
+        <mat-form-field>
+          <mat-select placeholder="Gender:" formControlName="gender">
+            <mat-option value="M">Male</mat-option>
+            <mat-option value="F">Female</mat-option>
+            <mat-option value="O">Others</mat-option>
+          </mat-select>
+          <mat-error *ngIf="hasError('gender', 'required')">Gender is required</mat-error>
+        </mat-form-field>
+      
+        <mat-form-field>
+          <textarea matInput placeholder="Comments:" formControlName="comments"></textarea>
+          <mat-error *ngIf="hasError('comments', 'required')">Comments is required</mat-error>
+        </mat-form-field>
+      
+        <button mat-flat-button color="primary" >Submit</button>
+      </div>
+  </form>
+</mat-card>
+
+
+
+
+
