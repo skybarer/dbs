@@ -1,15 +1,16 @@
 <mat-card fxLayoutAlign="center center">
   <form [formGroup]="rf" (ngSubmit)="onSubmit()">
       <div class="example-container">
-        <mat-card-title>Basic User Form</mat-card-title>
+        <mat-card-title style="text-align:center">Basic Details</mat-card-title>
         <mat-form-field>
           <input type="text" matInput placeholder="Name:" formControlName="name"  >
-          <mat-hint align="start">Not more then 60 characters long.</mat-hint>
+          <mat-hint align="start">Username of the contact person.</mat-hint>
           <mat-error *ngIf="hasError('name', 'required')">Name is required</mat-error>
         </mat-form-field>
       
         <mat-form-field>
-          <input type="email" matInput placeholder="Email:" formControlName="email" >
+          <input type="email" matInput placeholder="Email Address:" formControlName="email" >
+          <mat-hint align="start">Email address of contact person.</mat-hint>
           <mat-error *ngIf="hasError('email', 'required')">Email is required</mat-error>
         </mat-form-field>
       

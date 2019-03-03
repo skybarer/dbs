@@ -1,0 +1,19 @@
+<mat-card fxLayoutAlign="center center">
+  <form [formGroup]="rf" (ngSubmit)="onSubmit()">
+    <div class="example-container">
+      <mat-card-title style="text-align:center">Login</mat-card-title>
+      <mat-form-field>
+        <input type="text" matInput placeholder="Username:" formControlName="username">
+        <mat-hint align="start">Name of the contact person.</mat-hint>
+        <mat-error *ngIf="hasError('username', 'required')">Name is required</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input type="password" matInput placeholder="Password:" formControlName="password">
+        <mat-hint align="start">Email address of contact person.</mat-hint>
+        <mat-error *ngIf="hasError('password', 'required')">Email is required</mat-error>
+      </mat-form-field>
+      <button mat-flat-button color="primary">Submit</button>
+    </div>
+  </form>
+</mat-card>
