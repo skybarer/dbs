@@ -10,7 +10,7 @@ import { ProgressBarComponent } from './components/progress-bar/progress-bar.com
 export class AppComponent implements OnInit {
   title = 'ng-alpha';
 
-  value = 16.66;
+  value = 1;
 
   @ViewChild(ProgressBarComponent) progresBar: ProgressBarComponent;
 
@@ -18,9 +18,9 @@ export class AppComponent implements OnInit {
     //  this.value = this.progresBar.value;
    }
    ngOnInit(): void {
-     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-     //Add 'implements OnInit' to the class.
-    //  this.value = this.progresBar.value;
+     // Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+     // Add 'implements OnInit' to the class.
+     // this.value = this.progresBar.value;
    }
 
 
