@@ -14,11 +14,15 @@ div mat-card{
 }
 
 
+.content-container {
+    margin: 16px 0;
+}
+
 
 @media screen and (min-width: 480px) {
   .content-container{
     margin-top: 110px;
-    margin-bottom: 12px;
+    margin-bottom: 22px;
   }
 }
 
@@ -27,4 +31,8 @@ div mat-card{
     margin: 0 !important;
     // padding: 0 16px;
     color: rgb(89, 100,109);
+}
+
+.previous-next{
+  margin-top: 24px;
 }

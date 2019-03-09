@@ -12,15 +12,15 @@
         <h2>Company Information</h2>
         <p>Please complete in english unless untill specified.</p>
       </div>
-      <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="0px">
+      <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="0px">
           <mat-card>
             <mat-card-title>Simple card</mat-card-title>
           </mat-card>
       </div>
      
-      <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="25px">
+      <div class="previous-next" fxLayout="row" fxLayoutAlign="end center" fxLayoutAlign.xs="center center" fxLayoutGap="15px">
           <button mat-raised-button (click)="decrement()" color="warn">Previous</button>
-          <button mat-raised-button (click)="increment()" color="warn">Next</button>
+          <button mat-raised-button (click)="increment()" color="warn">&nbsp;&nbsp;&nbsp;&nbsp;Next&nbsp;&nbsp;&nbsp;&nbsp;</button>
       </div>
     </div>
   </div>
