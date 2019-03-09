@@ -1,7 +1,13 @@
+  
+  <alpha-navbar></alpha-navbar>
+  
   <alpha-progress-bar [mode]="determinate"   [color]="primary" [steps]=8 [stepSize]=1  ></alpha-progress-bar>
-  <p></p>
-  <div  class="width-1024" fxLayout="row" fxLayoutAlign="space-evenly  center" fxLayoutGap="10px">
-    <button mat-flat-button color="warn" (click)="increment();">increment</button>
-    {{progresBar.value}}
-    <button mat-flat-button color="warn" (click)="decrement();">decrement</button>
+  
+  <div class="container" fxLayout="row wrap" fxLayoutAlign="start start" >
+    <div fxFlex="25%">
+      <alpha-stepper></alpha-stepper>
+    </div>
+    <div fxFlex="75%">
+      
+    </div>
   </div>

@@ -1,0 +1,9 @@
+<mat-list role="list">
+  <ng-container *ngFor="let item of items; let i=index">
+    <a [routerLink]="item.link" routerLinkActive="active">
+      <mat-list-item role="listitem" ng-route>{{item.name}}</mat-list-item>
+    </a>
+    <mat-divider *ngIf="isMdDividerRequired(i);"></mat-divider>
+  </ng-container>
+</mat-list>
+
