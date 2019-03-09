@@ -3,7 +3,7 @@
 	// border: 1px dotted;
 }
 
-a.active {
+/deep/ a {
 	text-decoration: none;
 }
 
@@ -11,13 +11,15 @@ a.active {
 	display: flex;
 	flex-direction: row;
 	flex: 1;
+	color: #aba6a6;
 }
 
 .sub-item-content {
 	display: flex;
 	flex-direction: row;
 	flex: 1;
-    padding-left: 22px;
+	padding-left: 22px;
+	color: #aba6a6;
 }
 
 .svg-container {
