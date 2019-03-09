@@ -28,14 +28,13 @@ export class ProgressBarComponent implements OnInit {
   }
 
   increment = () => {
-    console.log(this.stepSize);
     if (this.stepSize > this.steps - 1) { return; }
     this.stepSize++;
     this.value += this.stepIncrementValue;
     // this._increment.emit(this.stepSize);
   }
   decrement = () => {
-    if (this.stepSize < 0) { return; }
+    if (this.stepSize - 1 < 0) { return; }
     this.stepSize--;
     this.value -= this.stepIncrementValue;
     // this._increment.emit(this.stepSize);
