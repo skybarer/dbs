@@ -39,11 +39,12 @@ body{
      font-weight: 400;
      line-height: 1.5;
      color: #212529;
+     word-wrap: break-word;
 }
 div, span,h1,h2,h3,h4,h5,h6,p {
     // border: 1px dotted #f4cb36d1;
     // border: thin dotted #dadce0;
-     border: thin dotted #f4cb36d1;
+    //  border: thin dotted #f4cb36d1;
 }
 
 
@@ -53,21 +54,45 @@ div mat-card{
     display: flex;
     flex-direction: row;
     flex: 1;
-    border: thin solid #bcbcbc8f;
-    box-shadow: none;
+    // border: thin solid #bcbcbc8f;
+    border: thin solid #dad9d9;
+    box-shadow: none !important;
+    padding: 10px 20px !important;
+}
+
+div mat-form-field{
+    padding-bottom: 36px;
 }
 
 
 .content-container {
-    margin: 16px 0;
+    // margin: 16px 0;
+    margin-left: 5px;
+    margin-right:5px;
+    text-align: center;
 }
 
 
 @media screen and (min-width: 480px) {
   .content-container{
-    margin-top: 110px;
+    margin-top: 100px;
     margin-bottom: 22px;
   }
+
+  div mat-card{
+    padding: 28px 92px !important;
+  }
+
+  .mat-form-field-appearance-legacy .mat-form-field-wrapper {
+    max-width: 60%;
+  }
+
+  .content-container {
+    margin: 16px 0;
+    text-align: left;
+  }
+
+
 
 }
 
@@ -76,6 +101,13 @@ div mat-card{
     margin: 0 !important;
     // padding: 0 16px;
     color: rgb(89, 100,109);
+}
+.form-container{
+  display: flex;
+  flex-direction: column;
+}
+.form-container > * {
+  width: 100%;
 }
 
 // containers basic structure end

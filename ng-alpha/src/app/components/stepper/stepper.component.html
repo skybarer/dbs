@@ -24,7 +24,7 @@
     <!-- <mat-divider *ngIf="isMdDividerRequired(i);"></mat-divider> -->
 
       <ng-container *ngFor="let subItem of item.subItems">
-        <a [routerLink]="item.link" routerLinkActive="active">
+        <a [routerLink]="subItem.link" routerLinkActive="active">
           <mat-list-item class="sub-item">
             <div fxLayout="row" fxLayoutAlign="space-between center">
                 <span class="sub-item-content"> {{subItem.name}}</span>
