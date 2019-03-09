@@ -13,6 +13,13 @@ a.active {
 	flex: 1;
 }
 
+.sub-item-content {
+	display: flex;
+	flex-direction: row;
+	flex: 1;
+    padding-left: 22px;
+}
+
 .svg-container {
 	width: 24px;
 	height: 24px;
@@ -42,4 +49,9 @@ path {
 :host /deep/ .mat-list-item-content {
     padding: 0 !important;
     font-size: 14px;
+}
+
+.sub-item.mat-list-item {
+    padding: 0;
+    height: 42px;
 }
