@@ -10,7 +10,11 @@ export class StepperComponent implements OnInit {
   constructor() { }
 
   items = [
-    { 'name': 'Basic Information', 'routerLink': ' ', 'subItems': [{ 'name': 'Application Contact Info' }, { 'name': "sth2" }] },
+    {
+      name: 'Basic Information',
+      routerLink: ' ',
+      subItems: [{ name: 'Application Contact Info' }, { name: 'Select Account type' }]
+    },
     { 'name': 'Enterprise Information', 'routerLink': '1'  },
     { 'name': 'Bank of service application', 'routerLink': '2'  },
     { 'name': 'File Uplaod', 'routerLink': '3' },

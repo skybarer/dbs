@@ -9,13 +9,25 @@ import { ProgressBarComponent } from './components/progress-bar/progress-bar.com
 import { MaterialModule } from './modules/material/material.module';
 import { StepperComponent } from './components/stepper/stepper.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { ApplicationContactInfoComponent } from './containers/application-contact-info/application-contact-info.component';
+import { EnterpriseInformationComponent } from './containers/enterprise-information/enterprise-information.component';
+import { SelectAccountTypeComponent } from './containers/select-account-type/select-account-type.component';
+import { BankOfServiceApplicationComponent } from './containers/bank-of-service-application/bank-of-service-application.component';
+import { FileUplaodComponent } from './containers/file-uplaod/file-uplaod.component';
+import { ConfirmComponent } from './containers/confirm/confirm.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProgressBarComponent,
     StepperComponent,
-    NavbarComponent
+    NavbarComponent,
+    ApplicationContactInfoComponent,
+    EnterpriseInformationComponent,
+    SelectAccountTypeComponent,
+    BankOfServiceApplicationComponent,
+    FileUplaodComponent,
+    ConfirmComponent
   ],
   imports: [
     BrowserModule,

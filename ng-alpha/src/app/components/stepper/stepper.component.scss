@@ -21,14 +21,15 @@ a.active {
 }
 
 .svg-container {
-	width: 24px;
-	height: 24px;
+	width: 21px;
+	height: 21px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	position: absolute;
-	top: 12px;
+	// top: 12px;
 	right: 0px;
+	// margin-right: 5px;
 }
 
 svg {
