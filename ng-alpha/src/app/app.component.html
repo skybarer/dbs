@@ -3,11 +3,18 @@
   
   <alpha-progress-bar [mode]="determinate"   [color]="primary" [steps]=8 [stepSize]=1  ></alpha-progress-bar>
   
-  <div class="container" fxLayout="row wrap" fxLayoutAlign="start start" >
+  <div class="container" fxLayout="row" fxLayoutAlign="start start" >
     <div fxFlex="25%" fxHide.xs >
       <alpha-stepper></alpha-stepper>
     </div>
     <div fxFlex="75%" fxFlex.xs="100%">
-      
+      <mat-card>
+        <mat-card-title>Simple card</mat-card-title>
+      </mat-card>
+
+    <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="25px">
+        <button mat-raised-button (click)="decrement()" color="warn">Previous</button>
+        <button mat-raised-button (click)="increment()" color="warn">Next</button>
+    </div>
     </div>
   </div>

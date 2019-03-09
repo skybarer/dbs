@@ -24,12 +24,17 @@ export class AppComponent implements OnInit {
    }
 
 
-  increment = () => {
-    // this.value += 16.66;
-    this.progresBar.increment();
-  }
+
   decrement = () => {
     // this.value -= 16.66;
     this.progresBar.decrement();
   }
+
+
+  increment = () => {
+    // this.value += 16.66;
+    this.progresBar.increment();
+  }
+
 }
+

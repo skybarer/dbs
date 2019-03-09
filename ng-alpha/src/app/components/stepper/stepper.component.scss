@@ -6,3 +6,35 @@
 a.active {
     text-decoration: none;
 }
+
+
+
+.item-content{
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+}
+
+.svg-container{
+    width: 24px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 12px;
+    right: 0px;
+}
+
+svg{
+    width: 12px;
+    height:12px;
+}
+
+path{
+    fill:none;
+    stroke: #ff3333;
+    stroke-width: 2px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}

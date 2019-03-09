@@ -1,7 +1,15 @@
 <mat-list role="list">
   <ng-container *ngFor="let item of items; let i=index">
     <a [routerLink]="item.link" routerLinkActive="active">
-      <mat-list-item role="listitem" ng-route>{{item.name}}</mat-list-item>
+      <mat-list-item role="listitem" ng-route>
+       <span class="item-content"> {{item.name}}</span>
+       <span class="svg-container">
+          <svg viewBox="0 0 12 9">
+            <path d="M6 1.757L10.243 6 6 10.243M1 6h9"></path>
+          </svg>
+
+       </span>
+      </mat-list-item>
     </a>
     <mat-divider *ngIf="isMdDividerRequired(i);"></mat-divider>
   </ng-container>
