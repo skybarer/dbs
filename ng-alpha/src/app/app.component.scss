@@ -3,3 +3,9 @@ div.container{
     margin-left: auto;
     margin-right: auto;
 }
+
+div mat-card{
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+}
