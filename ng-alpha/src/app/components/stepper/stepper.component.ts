@@ -141,16 +141,26 @@ export class StepperComponent implements OnInit {
 
     if (this.linkState === 'previousLink') {
 
+      // if (this.subItemIndexState === this.subItemsLength - 1) {
+      //   this.subRouterLink();
+      //   this.currentItemIndexState--;
+      //   this.subItemIndexState = 0;
+      // } else {
+      //   this.subRouterLink();
+      //   if (this.currentItemIndexState === 1 && this.subItemIndexState === 0) {
+      //     this.subItemIndexState = this.subItemsLength;
+      //   }
+      //   if (this.subItemIndexState > 0) {
+      //     this.subItemIndexState--;
+      //   }
+      // }
       if (this.subItemIndexState === this.subItemsLength - 1) {
         this.subRouterLink();
         this.currentItemIndexState--;
         this.subItemIndexState = 0;
-      // return;
       } else {
         this.subRouterLink();
-        if (this.currentItemIndexState === 1 && this.subItemIndexState === 0) {
-          this.subItemIndexState = this.subItemsLength;
-        }
+        this.subItemIndexState = this.subItemsLength;
         this.subItemIndexState--;
       }
     }
@@ -161,7 +171,6 @@ export class StepperComponent implements OnInit {
         this.subRouterLink();
         this.currentItemIndexState++;
         this.subItemIndexState = 0;
-      // return;
       } else {
         this.subRouterLink();
         this.subItemIndexState++;
