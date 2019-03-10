@@ -165,8 +165,12 @@ export class StepperComponent implements OnInit {
       //   }
       // }
 
+      if(this.currentItemIndexState === 0 && this.subItemIndexState === 0 ) {
+        return;
+      }
+
       if (this.subItemIndexState === this.subItemsLength - 1) {
-        this.subItemIndexState = 0;
+        this.subItemIndexState --;
         this.subRouterLink();
         this.currentItemIndexState--;
       } else {
