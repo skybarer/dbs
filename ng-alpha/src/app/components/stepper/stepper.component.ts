@@ -63,13 +63,19 @@ export class StepperComponent implements OnInit {
   itemsLength: number;
   subItemsLength: number;
   selectedUserIndex: number;
-  currentItemIndexState = 0;
-  subItemIndexState = 0;
+  currentItemIndexState: number;
+  subItemIndexState: number;
   linkState: String;
 
 
   ngOnInit() {
+
+    this.currentItemIndexState = 0;
+    this.subItemIndexState = 1;
     this.itemsLength = this.items.length;
+    this.linkState = 'nextLink';
+
+
     for (let i = 0; i < this.itemsLength; i++) {
       (this.items[i])['tickIcon'] = false;
       (this.items[i])['arrowIcon'] = false;
@@ -86,8 +92,9 @@ export class StepperComponent implements OnInit {
         }
       }
     }
-    (this.items[0])['tickIcon'] = true;
-    (this.items[0].subItems[0])['tickIcon'] = true;
+
+    // (this.items[0])['tickIcon'] = true;
+    // (this.items[0].subItems[0])['tickIcon'] = true;
     console.log(this.items);
   }
 
@@ -106,49 +113,107 @@ export class StepperComponent implements OnInit {
       }
    }
 
-  // stepperRouteSubItem = () => {
+   routerLink = () => {
 
-  // }
+   }
+   subRouterLink = () => {
 
-  stepperRouteItem = () => {
+     if (this.linkState === 'previousLink') {
+       this.router.navigateByUrl(this.items[this.currentItemIndexState].subItems[this.subItemIndexState].link);
+// tslint:disable-next-line: max-line-length
+       console.log(`this.items[${this.currentItemIndexState}].subItems[${this.subItemIndexState}].link = ${this.items[this.currentItemIndexState].subItems[this.subItemIndexState].link} = [${this.currentItemIndexState} ${this.subItemIndexState}]`);
 
-    // check if subitem exists.
-    if (this.items[this.currentItemIndexState].subItems ) {
+     }
 
-      // if clicked on previousLink link and sub-tem exists
-      if (this.linkState === 'previousLink') {
-        this.router.navigateByUrl(this.items[this.currentItemIndexState].link);
-        console.log(this.linkState + ' ' + 'sub-item-exists: ' + this.items[this.currentItemIndexState].link);
-      }
-       // if clicked on nextLink link and sub-tem exists
-      if (this.linkState === 'nextLink') {
-        console.log(this.linkState + ' ' + 'sub-item-exists: ' + this.items[this.currentItemIndexState].link);
-        this.router.navigateByUrl(this.items[this.currentItemIndexState].link);
+     if (this.linkState === 'nextLink') {
+       this.router.navigateByUrl(this.items[this.currentItemIndexState].subItems[this.subItemIndexState].link);
+// tslint:disable-next-line: max-line-length
+       console.log(`this.items[${this.currentItemIndexState}].subItems[${this.subItemIndexState}].link = ${this.items[this.currentItemIndexState].subItems[this.subItemIndexState].link} = [${this.currentItemIndexState} ${this.subItemIndexState}]`);
+
+     }
+
+
+
+   }
+
+  stepperRouteSubItem = () => {
+      // console.log(this.items[this.currentItemIndexState].subItems);
+
+    if (this.linkState === 'previousLink') {
+
+      if (this.subItemIndexState === this.subItemsLength - 1) {
+        this.subRouterLink();
+        this.currentItemIndexState--;
+        this.subItemIndexState = 0;
+      // return;
+      } else {
+        this.subRouterLink();
+        if (this.currentItemIndexState === 1 && this.subItemIndexState === 0) {
+          this.subItemIndexState = this.subItemsLength;
+        }
+        this.subItemIndexState--;
       }
     }
+
+    if (this.linkState === 'nextLink') {
+
+      if (this.subItemIndexState === this.subItemsLength - 1) {
+        this.subRouterLink();
+        this.currentItemIndexState++;
+        this.subItemIndexState = 0;
+      // return;
+      } else {
+        this.subRouterLink();
+        this.subItemIndexState++;
+      }
+    }
+
+  }
+
+  stepperRouteItem = () => {
     // else route to list tem
-    // console.log(this.items[this.currentItemIndexState].link);
     this.router.navigateByUrl(this.items[this.currentItemIndexState].link);
+    console.log(`${this.items[this.currentItemIndexState].link} = ${this.currentItemIndexState}`);
   }
 
   previousLink = () => {
     this.linkState = 'previousLink';
-    if (this.currentItemIndexState <= 0 ) { return ; }
+    if (this.currentItemIndexState < 0) { return ; }
+    // if (this.currentItemIndexState === 0 && this.subItemIndexState === 1) { return; }
 
-    this.currentItemIndexState--;
-    this.stepperRouteItem();
+    if (this.currentItemIndexState === this.items.length) {
+      this.currentItemIndexState -= 2;
+    }
+    // if (this.currentItemIndexState === this.items.length - 1) {
+    //   this.currentItemIndexState--;
+    // }
+
+    // check if subitem exists.
+    if (this.items[this.currentItemIndexState].subItems) {
+      this.subItemsLength = this.items[this.currentItemIndexState].subItems.length;
+      this.stepperRouteSubItem();
+    } else {
+      this.stepperRouteItem();
+      this.currentItemIndexState--;
+    }
+
   }
 
   nextLink = () => {
     this.linkState = 'nextLink';
     if (this.currentItemIndexState > this.itemsLength - 1 ) { return; }
 
-    if ( this.currentItemIndexState === this.itemsLength - 1 ) {
-      return;
+    // check if subitem exists.
+    if (this.items[this.currentItemIndexState].subItems) {
+      this.subItemsLength = this.items[this.currentItemIndexState].subItems.length;
+      this.stepperRouteSubItem();
     } else {
+      // if (this.currentItemIndexState === this.itemsLength) {
+      //   return;
+      // }
+      this.stepperRouteItem();
       this.currentItemIndexState++;
     }
-    this.stepperRouteItem();
 
   }
 
