@@ -1,6 +1,8 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
 import { ValueConverter } from '@angular/compiler/src/render3/view/template';
 import { ProgressBarComponent } from './components/progress-bar/progress-bar.component';
+import { StepperComponent } from './components/stepper/stepper.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'alpha-root',
@@ -8,32 +10,28 @@ import { ProgressBarComponent } from './components/progress-bar/progress-bar.com
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'ng-alpha';
 
-  value = 1;
+  @ViewChild(ProgressBarComponent) progressBar: ProgressBarComponent;
+  @ViewChild(StepperComponent) stepper: StepperComponent;
 
-  @ViewChild(ProgressBarComponent) progresBar: ProgressBarComponent;
+   constructor(
+     private router: Router
+   ) {}
 
-   constructor() {
-    //  this.value = this.progresBar.value;
-   }
    ngOnInit(): void {
-     // Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-     // Add 'implements OnInit' to the class.
-     // this.value = this.progresBar.value;
+     // load to first page on refresh.
+      this.router.navigate(['/']);
    }
-
-
 
   decrement = () => {
-    // this.value -= 16.66;
-    this.progresBar.decrement();
+    this.progressBar.decrement();
+    this.stepper.previousLink();
   }
 
 
   increment = () => {
-    // this.value += 16.66;
-    this.progresBar.increment();
+    this.progressBar.increment();
+    this.stepper.nextLink();
   }
 
 }

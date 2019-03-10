@@ -34,7 +34,7 @@ export class ProgressBarComponent implements OnInit {
     // this._increment.emit(this.stepSize);
   }
   decrement = () => {
-    if (this.stepSize - 1 < 0) { return; }
+    if (this.stepSize - 1 < 1) { return; }
     this.stepSize--;
     this.value -= this.stepIncrementValue;
     // this._increment.emit(this.stepSize);

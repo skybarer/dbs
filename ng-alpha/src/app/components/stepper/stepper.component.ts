@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'alpha-stepper',
@@ -7,7 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StepperComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router,
+    private activateRoute: ActivatedRoute
+  ) { }
 
   items = [
     {
@@ -31,10 +35,37 @@ export class StepperComponent implements OnInit {
     { 'name': 'Confirm', 'link': 'confirm' }
   ];
 
+  // items = [
+  //   {
+  //     'name': 'Basic Information',
+  //     'link': 'application-contact-info',
+  //     'subItems': [
+  //       { 'name': 'Contact Info', 'link': 'application-contact-info' },
+  //       { 'name': 'Select Account type', 'link': 'select-account-type' }
+  //     ]
+  //   },
+  //   {
+  //     'name': 'Enterprise Information',
+  //     'link': 'enterprise-information',
+  //     'subItems': [
+  //       { 'name': 'Enterprise Information', 'link': 'enterprise-information' },
+  //       { 'name': 'legal Representaive/ Unit Person Incharge ', 'link': 'enterprise-information' },
+  //       { 'name': 'Finincial Officer', 'link': 'enterprise-information' },
+  //       { 'name': 'Other authorised signed', 'link': 'enterprise-information' },
+  //       { 'name': 'Other pament contents', 'link': 'enterprise-information' }
+  //     ]
+  //   },
+  //   { 'name': 'Bank of service application', 'link': 'bank-of-service-application' },
+  //   { 'name': 'File Uplaod', 'link': 'file-uplaod' },
+  //   { 'name': 'Confirm', 'link': 'confirm' }
+  // ];
+
   itemsLength: number;
   subItemsLength: number;
   selectedUserIndex: number;
-  // iconStateMachine = [];
+  currentItemIndexState = 0;
+  subItemIndexState = 0;
+  linkState: String;
 
 
   ngOnInit() {
@@ -42,10 +73,16 @@ export class StepperComponent implements OnInit {
     for (let i = 0; i < this.itemsLength; i++) {
       (this.items[i])['tickIcon'] = false;
       (this.items[i])['arrowIcon'] = false;
+      (this.items[i])['state'] = false;
+      // provides indexing to list-items
+      (this.items[i])['i'] = i;
       if (this.items[i].subItems) {
         for (let j = 0; j < this.items[i].subItems.length; j++) {
           (this.items[i].subItems[j])['tickIcon'] = false;
           (this.items[i].subItems[j])['arrowIcon'] = false;
+          (this.items[i].subItems[j])['state'] = false;
+           // provides indexing to sub-list-items
+          (this.items[i].subItems[j])['j'] = j;
         }
       }
     }
@@ -69,11 +106,49 @@ export class StepperComponent implements OnInit {
       }
    }
 
-  previousLink = () => {
+  // stepperRouteSubItem = () => {
 
+  // }
+
+  stepperRouteItem = () => {
+
+    // check if subitem exists.
+    if (this.items[this.currentItemIndexState].subItems ) {
+
+      // if clicked on previousLink link and sub-tem exists
+      if (this.linkState === 'previousLink') {
+        this.router.navigateByUrl(this.items[this.currentItemIndexState].link);
+        console.log(this.linkState + ' ' + 'sub-item-exists: ' + this.items[this.currentItemIndexState].link);
+      }
+       // if clicked on nextLink link and sub-tem exists
+      if (this.linkState === 'nextLink') {
+        console.log(this.linkState + ' ' + 'sub-item-exists: ' + this.items[this.currentItemIndexState].link);
+        this.router.navigateByUrl(this.items[this.currentItemIndexState].link);
+      }
+    }
+    // else route to list tem
+    // console.log(this.items[this.currentItemIndexState].link);
+    this.router.navigateByUrl(this.items[this.currentItemIndexState].link);
+  }
+
+  previousLink = () => {
+    this.linkState = 'previousLink';
+    if (this.currentItemIndexState <= 0 ) { return ; }
+
+    this.currentItemIndexState--;
+    this.stepperRouteItem();
   }
 
   nextLink = () => {
+    this.linkState = 'nextLink';
+    if (this.currentItemIndexState > this.itemsLength - 1 ) { return; }
+
+    if ( this.currentItemIndexState === this.itemsLength - 1 ) {
+      return;
+    } else {
+      this.currentItemIndexState++;
+    }
+    this.stepperRouteItem();
 
   }
 
