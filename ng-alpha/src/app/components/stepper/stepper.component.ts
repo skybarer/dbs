@@ -107,15 +107,12 @@ export class StepperComponent implements OnInit {
   // show and hide functionality of sublist items based on onclick.
     selectUserIndex =  (index: any) => {
       if (this.selectedUserIndex !== index) {
-      this.selectedUserIndex = index;
+        this.selectedUserIndex = index;
       } else {
         this.selectedUserIndex = undefined;
       }
    }
 
-   routerLink = () => {
-
-   }
    subRouterLink = () => {
 
      if (this.linkState === 'previousLink') {
@@ -154,16 +151,30 @@ export class StepperComponent implements OnInit {
       //     this.subItemIndexState--;
       //   }
       // }
+      // if (this.subItemIndexState === this.subItemsLength - 1) {
+      //   this.subRouterLink();
+      //   if (this.currentItemIndexState >= 0) {
+      //   this.currentItemIndexState--;
+      //   }
+      //   this.subItemIndexState = 0;
+      // } else {
+      //   this.subRouterLink();
+      //   this.subItemIndexState = this.subItemsLength;
+      //   if (this.subItemIndexState > 0) {
+      //   this.subItemIndexState--;
+      //   }
+      // }
+
       if (this.subItemIndexState === this.subItemsLength - 1) {
+        this.subItemIndexState = 0;
         this.subRouterLink();
         this.currentItemIndexState--;
-        this.subItemIndexState = 0;
       } else {
+        this.subItemIndexState = this.subItemsLength - 1;
         this.subRouterLink();
-        this.subItemIndexState = this.subItemsLength;
-        this.subItemIndexState--;
       }
-    }
+
+      }
 
     if (this.linkState === 'nextLink') {
 
