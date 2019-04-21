@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, forwardRef, SimpleChanges, OnChanges, ElementRef, Renderer2, Optional, Self } from '@angular/core';
-import { NG_VALUE_ACCESSOR, NG_VALIDATORS, FormControl, FormGroup, FormBuilder, ControlValueAccessor, FormArray, NgControl } from '@angular/forms';
+import { FormControl, FormGroup, FormBuilder, ControlValueAccessor, FormArray, NgControl } from '@angular/forms';
 import { ReplaySubject } from 'rxjs';
 
 
@@ -18,6 +18,7 @@ export class CheckboxGroupComponent implements ControlValueAccessor, OnInit, OnC
   @Input() inputData: any[];
   @Input() color: string;
   public items: any = [];
+  public chechBoxGroup = [];
   delegatedMethodCalls = new ReplaySubject<(_: ControlValueAccessor) => void>();
   propagateChange: any = () => { };
   propagateTouch: any = () => { };
@@ -54,7 +55,14 @@ export class CheckboxGroupComponent implements ControlValueAccessor, OnInit, OnC
 
   ngOnChanges(changes: SimpleChanges): void {
     // this.propagateChange(changes.inputData.currentValue);
-    this.propagateChange(changes.inputData.currentValue);
+
+    changes.inputData.currentValue.forEach(element => {
+      if (element.checked){
+        this.chechBoxGroup.push(element.label);
+      }
+    });
+    // this.propagateChange(changes.inputData.currentValue);
+    this.propagateChange(this.chechBoxGroup);
     console.log(changes );
   }
 
@@ -72,7 +80,14 @@ export class CheckboxGroupComponent implements ControlValueAccessor, OnInit, OnC
 
     if (!isChecked) {
       checkboxFormArray.push(new FormControl(item));
+      this.chechBoxGroup.push(item);
     } else {
+
+      for (let index1 = 0; index1 < this.chechBoxGroup.length; index1++) {
+        if (this.chechBoxGroup[index1] === item) {
+           this.chechBoxGroup.splice(index1, 1);
+        }
+      }
       const indexToRemove = checkboxFormArray.controls.findIndex(x => x.value === item);
       checkboxFormArray.removeAt(indexToRemove);
     }
