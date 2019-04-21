@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'alpha-application-contact-info',
@@ -7,9 +8,36 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ApplicationContactInfoComponent implements OnInit {
 
+  validateForm: FormGroup;
+
+  inputData = [
+    {
+      'label': 'red',
+      'checked': true,
+      'disabled': false
+    },
+    {
+      'label': 'green',
+      'checked': false,
+      'disabled': false
+    },
+    {
+      'label': 'yellow',
+      'checked': true,
+      'disabled': true
+    }
+  ];
+
   constructor() { }
 
   ngOnInit() {
+    this.validateForm = new FormGroup({
+      items: new FormControl('', Validators.required)
+    });
+  }
+
+  submit() {
+    console.log(this.validateForm.value);
   }
 
 }

@@ -95,7 +95,7 @@ export class StepperComponent implements OnInit {
 
     // (this.items[0])['tickIcon'] = true;
     // (this.items[0].subItems[0])['tickIcon'] = true;
-    console.log(this.items);
+    // console.log(this.items);
   }
 
   // to remove last divider in item-list
@@ -165,7 +165,7 @@ export class StepperComponent implements OnInit {
       //   }
       // }
 
-      if(this.currentItemIndexState === 0 && this.subItemIndexState === 0 ) {
+      if ( this.currentItemIndexState === 0 && this.subItemIndexState === 0 ) {
         return;
       }
 

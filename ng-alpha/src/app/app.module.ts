@@ -15,6 +15,8 @@ import { SelectAccountTypeComponent } from './containers/select-account-type/sel
 import { BankOfServiceApplicationComponent } from './containers/bank-of-service-application/bank-of-service-application.component';
 import { FileUplaodComponent } from './containers/file-uplaod/file-uplaod.component';
 import { ConfirmComponent } from './containers/confirm/confirm.component';
+import { CheckboxGroupComponent } from './components/checkbox-group/checkbox-group.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -27,14 +29,17 @@ import { ConfirmComponent } from './containers/confirm/confirm.component';
     SelectAccountTypeComponent,
     BankOfServiceApplicationComponent,
     FileUplaodComponent,
-    ConfirmComponent
+    ConfirmComponent,
+    CheckboxGroupComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
-    MaterialModule
+    MaterialModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
