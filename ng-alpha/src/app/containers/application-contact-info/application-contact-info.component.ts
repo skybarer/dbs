@@ -28,11 +28,30 @@ export class ApplicationContactInfoComponent implements OnInit {
     }
   ];
 
+  inputData1 = [
+    {
+      'label': 'red',
+      'checked': true,
+      'disabled': false
+    },
+    {
+      'label': 'green',
+      'checked': false,
+      'disabled': false
+    },
+    {
+      'label': 'yellow',
+      'checked': true,
+      'disabled': true
+    }
+  ];
+
   constructor() { }
 
   ngOnInit() {
     this.validateForm = new FormGroup({
-      items: new FormControl('', Validators.required)
+      items: new FormControl('', Validators.required),
+      items1: new FormControl('', Validators.required)
     });
   }
 

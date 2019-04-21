@@ -83,7 +83,7 @@ export class CheckboxGroupComponent implements ControlValueAccessor, OnInit, OnC
 
 
   writeValue(value) {
-    this.items = value;
+    // this.items = value;
     // console.log(value);
     // this.checkbox.
     // if (value !== undefined) {
