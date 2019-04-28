@@ -58,7 +58,7 @@ export class ApplicationContactInfoComponent implements OnInit {
     this.validateForm = new FormGroup({
       // items: new FormControl('', Validators.required),
       // items1: new FormControl('', Validators.required)
-        branch: new FormControl('', Validators.required)
+        branch: new FormControl({'name': 'one'}, Validators.required)
     });
   }
 
