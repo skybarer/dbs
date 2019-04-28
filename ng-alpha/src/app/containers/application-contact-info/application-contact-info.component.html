@@ -25,13 +25,18 @@
         <mat-form-field>
           <mat-label>Account Manager</mat-label>
             <input matInput type="text" placeholder="Account Manager (required)">
-        </mat-form-field> -->
-        <pre>Form values: {{validateForm.value | json}}</pre>
+        </mat-form-field>  -->
+
+        
+          <alpha-autocomplete formControlName="branch"  [options]="options" ></alpha-autocomplete>
+        <!-- <pre>Form values: {{validateForm.value | json}}</pre>
           <alpha-checkbox-group [color]="warn" [inputData]="inputData" formControlName="items"></alpha-checkbox-group>
           <br>
           <alpha-checkbox-group [color]="warn" [inputData]="inputData1" formControlName="items1"></alpha-checkbox-group>
           <br>
-          <button  mat-button color="warn">submit</button>
+           -->
+
+          <button mat-button color="warn">submit</button>
          
       </div>
     </form>

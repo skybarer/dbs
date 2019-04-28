@@ -17,6 +17,7 @@ import { FileUplaodComponent } from './containers/file-uplaod/file-uplaod.compon
 import { ConfirmComponent } from './containers/confirm/confirm.component';
 import { CheckboxGroupComponent } from './components/checkbox-group/checkbox-group.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AutocompleteComponent } from './components/autocomplete/autocomplete.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     BankOfServiceApplicationComponent,
     FileUplaodComponent,
     ConfirmComponent,
-    CheckboxGroupComponent
+    CheckboxGroupComponent,
+    AutocompleteComponent
   ],
   imports: [
     BrowserModule,

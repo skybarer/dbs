@@ -57,7 +57,7 @@ export class CheckboxGroupComponent implements ControlValueAccessor, OnInit, OnC
     // this.propagateChange(changes.inputData.currentValue);
 
     changes.inputData.currentValue.forEach(element => {
-      if (element.checked){
+      if (element.checked) {
         this.chechBoxGroup.push(element.label);
       }
     });

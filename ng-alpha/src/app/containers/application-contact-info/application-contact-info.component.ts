@@ -46,17 +46,26 @@ export class ApplicationContactInfoComponent implements OnInit {
     }
   ];
 
+  options = [
+    {'name': 'one'},
+    {'name': 'two'},
+    {'name': 'three'}
+  ];
+
   constructor() { }
 
   ngOnInit() {
     this.validateForm = new FormGroup({
-      items: new FormControl('', Validators.required),
-      items1: new FormControl('', Validators.required)
+      // items: new FormControl('', Validators.required),
+      // items1: new FormControl('', Validators.required)
+        branch: new FormControl('', Validators.required)
     });
   }
 
   submit() {
-    console.log(this.validateForm.value);
+    if(this.validateForm.valid) {
+      console.log(this.validateForm.value);
+    }
   }
 
 }
