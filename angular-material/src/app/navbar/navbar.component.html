@@ -1,0 +1,21 @@
+<mat-toolbar>
+
+    <a href="/" [routerLink]="['/']" routerLinkActive="router-link-active" >
+        <img src="../../assets/images/dbs.png" class="nav-image" alt="dbs logo." />
+    </a>
+    
+    &nbsp;
+    &nbsp;
+    <button mat-button>
+        <span class="mat-button-wrapper" [routerLink]="['/login']" routerLinkActive="router-link-active" >Login</span>
+    </button>
+
+    &nbsp;
+    &nbsp;
+    <button mat-button>
+        <span class="mat-button-wrapper" [routerLink]="['/data']" routerLinkActive="router-link-active">User Data</span>
+    </button>
+    
+
+    
+</mat-toolbar>

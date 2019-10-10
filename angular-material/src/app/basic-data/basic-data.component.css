@@ -1,0 +1,12 @@
+table {
+	width: 100%;
+}
+
+.mat-card {
+	margin-left: 32px;
+	margin-right: 32px;
+}
+
+table.mat-table {
+	padding: 30px;
+}

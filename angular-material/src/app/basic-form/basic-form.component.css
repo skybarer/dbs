@@ -1,0 +1,27 @@
+.example-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 1rem;
+}
+
+.example-container > * {
+	width: 100%;
+}
+
+.mat-card {
+	min-width: 300px;
+	max-width: 400px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 3%;
+}
+
+button.mat-flat-button.mat-primary {
+    margin-top: 6%;
+}
+
+.mat-form-field-infix {
+    margin-bottom: 0;
+}
